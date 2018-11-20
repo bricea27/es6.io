@@ -13,6 +13,7 @@
 
   for(let i = 0; i < 10; i++) {
     console.log(i);
+    //will print 10 since the variable i is leaking out of the block scope
     setTimeout(function() {
       console.log('The number is ' + i);
     },1000);

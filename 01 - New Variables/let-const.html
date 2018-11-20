@@ -10,11 +10,14 @@
   let points = 50;
   let winner = false;
 
+  //const variables are not immutable, they just can't be reassigned
+  //for example, you can change the value of any of the peron object's properties
   const person = {
     name: 'Wes',
     age: 28
   }
 
+  //not part of ES6, but allows you to freeze an object's properties
   const wes = Object.freeze(person);
 
 </script>
