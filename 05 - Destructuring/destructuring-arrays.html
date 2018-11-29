@@ -11,10 +11,13 @@
   console.log(name, id, website);
 
   const data = 'Basketball,Sports,90210,23,wes,bos,cool';
+  // .split returns an array, so we can destructure from it
+  // destructure will throw out any indexes that aren't present
   const [itemName, category, sku, inventory] = data.split(',');
 
   const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];
-
+  // who is the captain, assistant, and the rest of the players...
+  // players would become an array of the rest of the indexes
   const [captain, assistant, ...players] = team;
 
 </script>

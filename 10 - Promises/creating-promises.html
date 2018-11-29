@@ -6,6 +6,9 @@
 </head>
 <body>
 <script>
+  // promise constructor
+  // resolve - request finishes and passes data back to you
+  // reject - error, malformed data, etc
   const p = new Promise((resolve, reject) => {
     setTimeout(() => {
       reject(Error('Err wes isn\'t cool'));

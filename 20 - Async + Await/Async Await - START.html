@@ -2,11 +2,48 @@
 <html lang="en">
 
 <head>
-  <title>Custom Promises</title>
+  <title>Async Await</title>
 </head>
 
 <body>
   <script>
+
+    // nothing we need to do here to make it async await ready - async await is built on promises
+    function breathe(amount) {
+      return new Promise((resolve, reject) => {
+        if (amount < 500) reject("Too small");
+        setTimeout(() => resolve(`Done for ${amount} ms`), amount);
+      });
+    }
+
+    // top level await - not allowed to do this (needs to be run inside an async function)
+    // await breathe(100);
+    // await breathe(500);
+    // await breathe(5000);
+
+    //mark function as async
+    const asyncGo = async () => {
+      await breathe(600);
+    }
+
+    async function go() {
+      try {
+        console.log("start");
+        // getting the values that are being resolved from our Promise function and sticking them into this variable
+        const res = await breathe(1000);
+        // if don't use the away keyword, the breathe function will only return a promise - await function allows the function to wait for the Promise to either resolve or reject and then returns that response accordingly
+        console.log(res);
+        const res2 = await breathe(200);
+        console.log(res2);
+        const res3 = await breathe(600);
+        console.log(res3);
+        console.log("end");
+      } catch(err) {
+        console.error(err);
+      }
+    }
+
+    go();
 
   </script>
 </body>

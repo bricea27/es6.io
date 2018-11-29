@@ -21,7 +21,7 @@
   function getPostById(id) {
     // create a new promise
     return new Promise((resolve, reject) => {
-      // using a settimeout to mimick a databse
+      // using a settimeout to mimic a database
       setTimeout(() => {
         // find the post we want
         const post = posts.find(post => post.id === id);
@@ -51,6 +51,7 @@
 
   getPostById(3)
     .then(post => {
+      // returning a promise inside of then callback allows us to chain another then callback
       return hydrateAuthor(post);
     })
     .then(post => {

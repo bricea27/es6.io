@@ -14,6 +14,7 @@
     twitter: '@wesbos'
   };
 
+  // pulling out these properties from the person object and setting them to variables
   const { first, last, twitter } = person;
 
   const wes = {
@@ -30,9 +31,11 @@
     }
   };
 
+  // renaming as we're destructuring - want the twitter property but want to name it tweet, etc
   const { twitter: tweet, facebook: fb } = wes.links.social;
 
   const settings = { width: 300, color: 'black' }  // height, fontSize
+  // height and fontSize not present in the above object - setting a fallback here so they don't show as undefined
   const { width = 100, height = 100, color = 'blue', fontSize = 25} = settings;
 
 </script>
