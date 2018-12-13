@@ -26,18 +26,22 @@
   // for (let i = 0; i < cuts.length; i++) {
   //   console.log(cuts[i]);
   // }
-
+  
+  // forEach not ideal if need to skip or break on specific iterations
   // cuts.forEach((cut) => {
   //   console.log(cut);
   //   if(cut === 'Brisket') {
-  //     continue;
+  //     break; // this won't work, can't use a break inside a forEach
+  //     continue; // this will throw an error as well
   //   }
   // });
-
+  
+  // this will take into account any properties that may have been added to the prototype as well
   // for (const index in cuts) {
   //   console.log(cuts[index]);
   // }
 
+  // can use this for any type of data except objects (only iterables)
   for (const cut of cuts) {
     if(cut === 'Brisket') {
       continue;

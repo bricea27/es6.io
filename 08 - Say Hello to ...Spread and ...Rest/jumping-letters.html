@@ -30,7 +30,13 @@
   <h2 class="jump">SPREADS!</h2>
 
 <script>
-  
+  const jump = document.querySelector(".jump");
+  jump.innerHTML = sparanWrap(jump.textContent);
+
+  function sparanWrap(word) {
+    return [...word].map(char => `<span>${char}</span>`).join("");
+  }
+
 </script>
 </body>
 </html>
