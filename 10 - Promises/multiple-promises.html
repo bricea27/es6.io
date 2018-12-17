@@ -18,12 +18,13 @@
   //   }, 500);
   // });
 
-  // Promise
-  //   .all([weather, tweets])
-  //   .then(responses => {
-  //     const [weatherInfo, tweetInfo] = responses;
-  //     console.log(weatherInfo, tweetInfo)
-  //   });
+  Promise
+    // waiting for every single promise to be resolved before running our .then
+    .all([weather, tweets])
+    .then(responses => {
+      const [weatherInfo, tweetInfo] = responses;
+      console.log(weatherInfo, tweetInfo)
+    });
 
   const postsPromise = fetch('https://wesbos.com/wp-json/wp/v2/posts');
   const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
@@ -31,7 +32,8 @@
   Promise
     .all([postsPromise, streetCarsPromise])
     .then(responses => {
-      return Promise.all(responses.map(res => res.json()))
+      // need to convert the stream to JSON - need to use a map since there are multiple responses
+      return Promise.all(responses.map(res => res.json())) // can't just use JSON.parse() because various forms of data can come back, .json() handles all of them
     })
     .then(responses => {
       console.log(responses);

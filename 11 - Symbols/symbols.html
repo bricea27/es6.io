@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-  const wes = Symbol('Wes');
-  const person = Symbol('Wes');
+  const wes = Symbol('Wes'); // pass in a descriptor
+  const person = Symbol('Wes'); // descriptors can be reused
 
   const classRoom = {
     [Symbol('Mark')] : { grade: 50, gender: 'male' },
@@ -15,6 +15,7 @@
     [Symbol('olivia')]: { grade: 80, gender: 'female' },
   };
 
+  // symbols are not enumerable (can't be iterated over) - the below would return nothing
   for (const person in classRoom) {
     console.log(person);
   }
